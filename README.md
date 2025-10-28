@@ -89,4 +89,23 @@ Results show:
 
 <img width="1366" height="768" alt="search-witout-date" src="https://github.com/user-attachments/assets/95df8af3-040b-4052-af03-2ce47f6f103f" />
 
+## Setup & Run Instructions  
+
+### Prerequisites
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)  
+- [Node.js & npm](https://nodejs.org/)  
+- [Angular CLI](https://angular.io/cli)  
+- PostgreSQL Database
+### Backend Setup
+-create backend project in visual studio 2022
+-Configure PostgreSQL connection in appsettings.json
+-Apply database migrations
+-Run the backend API
+### Frontend Setup
+-Navigate to the Angular project
+-Install dependencies
+-Install Bootsrapcss
+-Run the Angular application
+-Access the frontend at:http://localhost:4200
+
 
