@@ -1,0 +1,14 @@
+F:\BusReservation\BusReservation.Domain\bin\Debug\net9.0\BusReservation.Domain.deps.json
+F:\BusReservation\BusReservation.Domain\bin\Debug\net9.0\BusReservation.Domain.runtimeconfig.json
+F:\BusReservation\BusReservation.Domain\bin\Debug\net9.0\BusReservation.Domain.dll
+F:\BusReservation\BusReservation.Domain\bin\Debug\net9.0\BusReservation.Domain.pdb
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.csproj.AssemblyReference.cache
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.AssemblyInfoInputs.cache
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.AssemblyInfo.cs
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.csproj.CoreCompileInputs.cache
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.dll
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\refint\BusReservation.Domain.dll
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.pdb
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\BusReservation.Domain.genruntimeconfig.cache
+F:\BusReservation\BusReservation.Domain\obj\Debug\net9.0\ref\BusReservation.Domain.dll

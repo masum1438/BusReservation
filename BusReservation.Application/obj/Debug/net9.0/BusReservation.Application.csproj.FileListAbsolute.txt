@@ -1,0 +1,17 @@
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.csproj.AssemblyReference.cache
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.AssemblyInfoInputs.cache
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.AssemblyInfo.cs
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.csproj.CoreCompileInputs.cache
+F:\BusReservation\BusReservation.Application\bin\Debug\net9.0\BusReservation.Application.deps.json
+F:\BusReservation\BusReservation.Application\bin\Debug\net9.0\BusReservation.Application.runtimeconfig.json
+F:\BusReservation\BusReservation.Application\bin\Debug\net9.0\BusReservation.Application.dll
+F:\BusReservation\BusReservation.Application\bin\Debug\net9.0\BusReservation.Application.pdb
+F:\BusReservation\BusReservation.Application\bin\Debug\net9.0\BusReservation.Domain.dll
+F:\BusReservation\BusReservation.Application\bin\Debug\net9.0\BusReservation.Domain.pdb
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReser.7A67E656.Up2Date
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.dll
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\refint\BusReservation.Application.dll
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.pdb
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\BusReservation.Application.genruntimeconfig.cache
+F:\BusReservation\BusReservation.Application\obj\Debug\net9.0\ref\BusReservation.Application.dll

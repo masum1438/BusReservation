@@ -1,0 +1,4 @@
+body { background: #f7f9fb; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.navbar-brand { letter-spacing: 0.6px; }
+.card { border-radius: 12px; }
+.btn-seat { min-width: 56px; min-height: 44px; }

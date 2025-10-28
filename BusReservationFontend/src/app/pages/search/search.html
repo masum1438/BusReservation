@@ -1,0 +1,75 @@
+<div class="container mt-4">
+
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Search Bus</h4>
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="searchBuses()" class="row g-3">
+
+        <div class="col-md-4">
+          <label class="form-label">From</label>
+          <input type="text" [(ngModel)]="from" name="from" class="form-control" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">To</label>
+          <input type="text" [(ngModel)]="to" name="to" class="form-control" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Journey Date</label>
+          <input type="date" [(ngModel)]="journeyDate" name="journeyDate" class="form-control">
+        </div>
+
+        <div class="col-12 text-end">
+          <button class="btn btn-success px-4" type="submit" [disabled]="loading">
+            {{ loading ? 'Searching...' : '🔍 Search' }}
+          </button>
+        </div>
+      </form>
+
+      <div *ngIf="errorMessage" class="alert alert-warning mt-3">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="mt-4" *ngIf="results.length > 0">
+    <h5 class="mb-3">Available Buses</h5>
+
+    <div class="card mb-3 shadow-sm" *ngFor="let b of results">
+      <div class="card-body row align-items-center">
+
+        <div class="col-md-6">
+          <h6 class="fw-bold mb-1">{{ b.busName }}</h6>
+          <p class="mb-1 small text-muted">
+            {{ b.from }} → {{ b.to }} |
+            📅 {{ b.journeyDate }} |
+            ⏱️ {{ b.time }} |
+            Seats: {{ b.availableSeats }}
+          </p>
+        </div>
+
+        <div class="col-md-3 text-md-end text-start">
+          <h6 class="text-success mb-0">{{ b.price | currency:'BDT':'symbol':'1.0-0' }}</h6>
+          <small class="text-muted">per seat</small>
+        </div>
+
+        <div class="col-md-3 text-end">
+          <button class="btn btn-primary btn-sm" (click)="viewSeats(b.id)">
+            View Seats
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && results.length === 0 && submitted" class="alert alert-warning mt-3">
+    ❌ No buses found!
+  </div>
+
+</div>
