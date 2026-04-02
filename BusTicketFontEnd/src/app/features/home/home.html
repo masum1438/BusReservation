@@ -1,0 +1,443 @@
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="hero-section">
+      <!-- Animated background grid -->
+      <div class="hero-grid-overlay"></div>
+
+      <div class="container position-relative" style="z-index:2">
+        <div class="row align-items-center g-5 py-5" style="min-height:90vh">
+
+          <!-- Left: Headline + stats -->
+          <div class="col-lg-6">
+
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4"
+                 style="background:rgba(99,179,237,.1);border:1px solid rgba(99,179,237,.25)">
+              <span class="live-dot"></span>
+              <span style="font-size:.8rem;font-weight:600;color:#90cdf4;letter-spacing:.04em">
+                Live seat availability · Updated every 60s
+              </span>
+            </div>
+
+            <h1 class="hero-headline">
+              Bangladesh's fastest<br>
+              <span class="headline-accent">bus booking</span><br>
+              platform.
+            </h1>
+
+            <p class="hero-sub">
+              Browse 200+ routes, pick your seat on a live map, and confirm your
+              ticket in under 60 seconds — no queues, no calls.
+            </p>
+
+            <!-- Feature pills -->
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              @for (pill of featurePills; track pill.text) {
+                <span class="feature-pill">
+                  <i class="bi {{pill.icon}} me-1"></i>{{ pill.text }}
+                </span>
+              }
+            </div>
+
+            <div class="d-flex gap-3 flex-wrap">
+              <a routerLink="/search" class="btn btn-hero-primary btn-lg px-5">
+                <i class="bi bi-search me-2"></i>Find Buses
+              </a>
+              <a routerLink="/register" class="btn btn-hero-outline btn-lg px-4">
+                Create Account <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+
+            <!-- Live stats bar -->
+            <div class="stats-bar mt-5">
+              @for (stat of liveStats; track stat.label) {
+                <div class="stat-item">
+                  <div class="stat-value">{{ stat.value }}</div>
+                  <div class="stat-label">{{ stat.label }}</div>
+                </div>
+                @if (!$last) { <div class="stat-divider"></div> }
+              }
+            </div>
+          </div>
+
+          <!-- Right: Search card -->
+          <div class="col-lg-5 offset-lg-1">
+            <div class="search-card">
+              <div class="search-card-header">
+                <span class="search-card-icon"><i class="bi bi-bus-front-fill"></i></span>
+                <div>
+                  <div class="fw-bold text-dark">Book Your Journey</div>
+                  <div class="text-muted" style="font-size:.78rem">
+                    Today is {{ todayLabel }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="search-form">
+
+                <!-- From / To with swap -->
+                <div class="position-relative">
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                      <i class="bi bi-geo-alt text-success me-1"></i>From
+                    </label>
+                    <input class="form-control form-control-lg"
+                           [(ngModel)]="from"
+                           placeholder="Departure city"
+                           list="cities-from" />
+                    <datalist id="cities-from">
+                      @for (c of cities; track c) { <option [value]="c"></option> }
+                    </datalist>
+                  </div>
+
+                  <!-- Swap button -->
+                  <button class="swap-btn" (click)="swapCities()" title="Swap cities">
+                    <i class="bi bi-arrow-down-up"></i>
+                  </button>
+
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                      <i class="bi bi-geo-alt-fill text-danger me-1"></i>To
+                    </label>
+                    <input class="form-control form-control-lg"
+                           [(ngModel)]="to"
+                           placeholder="Destination city"
+                           list="cities-to" />
+                    <datalist id="cities-to">
+                      @for (c of cities; track c) { <option [value]="c"></option> }
+                    </datalist>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label fw-semibold">
+                    <i class="bi bi-calendar3 text-primary me-1"></i>Journey Date
+                  </label>
+                  <input class="form-control form-control-lg"
+                         type="date"
+                         [(ngModel)]="date"
+                         [min]="today" />
+                  <!-- DateTime note: date input sends "YYYY-MM-DD", which our
+                       backend SearchBuses endpoint expects as the journey date.
+                       We store today's local date (not UTC) intentionally here
+                       because users search for local calendar dates. -->
+                  @if (date) {
+                    <div class="form-text d-flex align-items-center gap-1 mt-1">
+                      <i class="bi bi-info-circle text-primary"></i>
+                      Showing buses for <strong>{{ formatSelectedDate() }}</strong>
+                    </div>
+                  }
+                </div>
+
+                <button class="btn btn-primary w-100 btn-lg fw-bold"
+                        (click)="search()"
+                        [disabled]="!from || !to || !date">
+                  <i class="bi bi-search me-2"></i>
+                  Search Available Buses
+                </button>
+
+                <!-- Quick date shortcuts -->
+                <div class="d-flex gap-2 mt-3 flex-wrap">
+                  @for (d of dateShortcuts; track d.label) {
+                    <button class="btn btn-sm"
+                            [class.btn-primary]="date === d.value"
+                            [class.btn-outline-secondary]="date !== d.value"
+                            (click)="date = d.value"
+                            style="font-size:.75rem;border-radius:50px">
+                      {{ d.label }}
+                    </button>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         HOW IT WORKS
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-5 bg-white">
+      <div class="container py-3">
+        <div class="text-center mb-5">
+          <span class="section-eyebrow">Simple Process</span>
+          <h2 class="fw-bold mt-2 fs-1">Book in 3 easy steps</h2>
+          <p class="text-muted">From search to seat in under a minute</p>
+        </div>
+
+        <div class="row g-4 align-items-center">
+          @for (step of howItWorks; track step.num) {
+            <div class="col-12 col-md-4 fade-up text-center">
+              <div class="step-number">{{ step.num }}</div>
+              <div class="step-icon-wrap mx-auto mb-3" [style]="'background:' + step.bg">
+                <i class="bi {{step.icon}} fs-2" [style.color]="step.color"></i>
+              </div>
+              <h5 class="fw-bold">{{ step.title }}</h5>
+              <p class="text-muted small mb-0">{{ step.desc }}</p>
+            </div>
+            @if (!$last) {
+              <div class="col-12 col-md-auto d-none d-md-flex align-items-center justify-content-center">
+                <i class="bi bi-chevron-right fs-4 text-muted"></i>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         LIVE UPCOMING DEPARTURES  ← Uses DateUtils
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-5" style="background:#f8fafc">
+      <div class="container py-3">
+        <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
+          <div>
+            <span class="section-eyebrow">Live Feed</span>
+            <h2 class="fw-bold mt-1 mb-0">Today's Departures</h2>
+            <p class="text-muted small mb-0">
+              Showing buses departing on
+              <strong>{{ todayLabel }}</strong>
+              from Dhaka
+              <!-- DateTime note: todayLabel is formatted from today's local date.
+                   Backend response times are normalised via DateUtils.toDate()
+                   which forces the Z suffix, ensuring UTC display. -->
+            </p>
+          </div>
+          <a routerLink="/search" class="btn btn-outline-primary fw-semibold">
+            View All Routes <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+
+        @if (searchingLive()) {
+          <!-- Skeleton loading -->
+          <div class="row g-3">
+            @for (s of [1,2,3]; track s) {
+              <div class="col-12">
+                <div class="card border-0 shadow-sm p-4" style="border-radius:16px">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-3"><div class="skeleton" style="height:18px;border-radius:6px"></div></div>
+                    <div class="col-4"><div class="skeleton" style="height:18px;border-radius:6px"></div></div>
+                    <div class="col-2"><div class="skeleton" style="height:18px;border-radius:6px"></div></div>
+                    <div class="col-3"><div class="skeleton" style="height:38px;border-radius:8px"></div></div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        }
+
+        @if (!searchingLive() && liveDepartures().length === 0) {
+          <div class="text-center py-4 text-muted">
+            <i class="bi bi-bus-front" style="font-size:2.5rem;opacity:.2;display:block;margin-bottom:.5rem"></i>
+            No buses scheduled for today from Dhaka. Try searching a custom route.
+          </div>
+        }
+
+        @if (!searchingLive() && liveDepartures().length > 0) {
+          <div class="row g-3">
+            @for (bus of liveDepartures(); track bus.busScheduleId) {
+              <div class="col-12 fade-up">
+                <div class="departure-card card border-0 shadow-sm" style="border-radius:16px;overflow:hidden">
+                  <!-- Left accent line — color by seat availability -->
+                  <div class="departure-accent"
+                       [style.background]="bus.seatsLeft > 10 ? '#10b981' : bus.seatsLeft > 0 ? '#f59e0b' : '#ef4444'">
+                  </div>
+                  <div class="card-body p-4">
+                    <div class="row align-items-center g-3">
+
+                      <!-- Operator -->
+                      <div class="col-12 col-sm-3">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="operator-avatar flex-shrink-0">
+                            {{ bus.busName.charAt(0).toUpperCase() }}
+                          </div>
+                          <div>
+                            <div class="fw-bold small">{{ bus.busName }}</div>
+                            <div class="text-muted" style="font-size:.72rem">{{ bus.companyName }}</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Route & timing ← DateTime: fmt.time() uses DateUtils UTC normalisation -->
+                      <div class="col-12 col-sm-4">
+                        <div class="d-flex align-items-center gap-3">
+                          <div class="text-center">
+                            <!-- fmt.time() strips fractional seconds, forces Z, displays HH:mm UTC -->
+                            <div class="fw-bold fs-5 text-dark">{{ fmt.time(bus.startTime) }}</div>
+                            <div class="text-muted" style="font-size:.7rem">Dhaka</div>
+                          </div>
+                          <div class="flex-fill text-center">
+                            <div class="text-muted" style="font-size:.68rem;margin-bottom:2px">
+                              {{ fmt.duration(bus.startTime, bus.arrivalTime) }}
+                            </div>
+                            <div style="border-top:2px dashed #e2e8f0;position:relative">
+                              <i class="bi bi-bus-front-fill text-primary"
+                                 style="position:absolute;left:50%;top:-9px;transform:translateX(-50%);font-size:.75rem"></i>
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <div class="fw-bold fs-5 text-dark">{{ fmt.time(bus.arrivalTime) }}</div>
+                            <div class="text-muted" style="font-size:.7rem">{{ getDestination(bus) }}</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Seat availability -->
+                      <div class="col-6 col-sm-2 text-center">
+                        <div class="fw-bold fs-5"
+                             [class.text-success]="bus.seatsLeft > 10"
+                             [class.text-warning]="bus.seatsLeft <= 10 && bus.seatsLeft > 0"
+                             [class.text-danger]="bus.seatsLeft === 0">
+                          {{ bus.seatsLeft }}
+                        </div>
+                        <div class="text-muted" style="font-size:.7rem">seats left</div>
+                        <div class="progress mt-1" style="height:4px;border-radius:2px">
+                          <div class="progress-bar"
+                               [class.bg-success]="bus.seatsLeft > 10"
+                               [class.bg-warning]="bus.seatsLeft <= 10 && bus.seatsLeft > 0"
+                               [class.bg-danger]="bus.seatsLeft === 0"
+                               [style.width]="(bus.seatsLeft / bus.totalSeats * 100) + '%'">
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Price + CTA -->
+                      <div class="col-6 col-sm-3 text-end">
+                        <div class="fw-bold text-primary" style="font-size:1.5rem">৳{{ bus.price }}</div>
+                        <div class="text-muted" style="font-size:.7rem;margin-bottom:.5rem">per seat</div>
+                        <button class="btn btn-primary btn-sm px-3"
+                                (click)="bookNow(bus)"
+                                [disabled]="bus.seatsLeft === 0">
+                          {{ bus.seatsLeft === 0 ? 'Sold Out' : 'Book Now' }}
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FEATURES GRID
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-5 bg-white">
+      <div class="container py-3">
+        <div class="text-center mb-5">
+          <span class="section-eyebrow">Platform Features</span>
+          <h2 class="fw-bold mt-2 fs-1">Everything built for travelers</h2>
+        </div>
+
+        <div class="row g-4">
+          @for (f of features; track f.title) {
+            <div class="col-12 col-md-6 col-lg-4 fade-up">
+              <div class="feature-card h-100">
+                <div class="feature-icon-wrap" [style]="'background:' + f.bg">
+                  <i class="bi {{f.icon}}" [style.color]="f.color"></i>
+                </div>
+                <h5 class="fw-bold mt-3 mb-2">{{ f.title }}</h5>
+                <p class="text-muted small mb-0">{{ f.desc }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         POPULAR ROUTES
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-5" style="background:#f8fafc">
+      <div class="container py-3">
+        <div class="text-center mb-5">
+          <span class="section-eyebrow">Top Destinations</span>
+          <h2 class="fw-bold mt-2 fs-1">Popular Routes</h2>
+          <p class="text-muted">Click any route to search buses instantly</p>
+        </div>
+
+        <div class="row g-3">
+          @for (r of popularRoutes; track r.from + r.to) {
+            <div class="col-6 col-md-3 fade-up">
+              <div class="route-card" (click)="quickSearch(r.from, r.to)">
+                <div class="route-bg" [style]="'background:' + r.gradient"></div>
+                <div class="route-content">
+                  <div class="route-city">{{ r.from }}</div>
+                  <div class="route-arrow">
+                    <i class="bi bi-arrow-down"></i>
+                  </div>
+                  <div class="route-city">{{ r.to }}</div>
+                  <div class="mt-2 d-flex align-items-center justify-content-between">
+                    <span class="route-distance">
+                      <i class="bi bi-rulers me-1"></i>{{ r.distance }} km
+                    </span>
+                    <span class="route-price">From ৳{{ r.price }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         DATETIME TRANSPARENCY BANNER
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="py-4" style="background:#0f172a">
+      <div class="container">
+        <div class="row align-items-center g-3">
+          <div class="col-auto">
+            <div class="d-flex align-items-center justify-content-center rounded-3"
+                 style="width:48px;height:48px;background:rgba(99,179,237,.1);border:1px solid rgba(99,179,237,.2)">
+              <i class="bi bi-clock-history" style="color:#90cdf4;font-size:1.2rem"></i>
+            </div>
+          </div>
+          <div class="col">
+            <div class="fw-bold" style="color:#e2e8f0;font-size:.9rem">Consistent Time Display</div>
+            <div style="color:#64748b;font-size:.8rem">
+              All departure and arrival times on this platform are shown in
+              <strong style="color:#90cdf4">UTC+0 (Bangladesh Standard Time offset applied server-side)</strong>.
+              Your device's local clock:
+              <strong style="color:#f0f4ff">{{ localTime() }}</strong>
+              &nbsp;&bull;&nbsp;
+              Server reference:
+              <strong style="color:#f0f4ff">{{ utcTime() }}</strong>
+            </div>
+          </div>
+          <div class="col-auto d-none d-md-block">
+            <span class="badge px-3 py-2" style="background:rgba(99,179,237,.1);color:#90cdf4;border:1px solid rgba(99,179,237,.2);font-size:.75rem">
+              <i class="bi bi-shield-check me-1"></i>No timezone confusion
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="cta-section py-5">
+      <div class="container text-center py-4">
+        <div class="cta-badge mb-4">Ready to travel?</div>
+        <h2 class="fw-bold text-white mb-3" style="font-size:clamp(1.8rem,4vw,2.8rem)">
+          Your next journey is<br>one search away.
+        </h2>
+        <p class="mb-4" style="color:rgba(255,255,255,.7);font-size:1.05rem;max-width:480px;margin:0 auto 1.5rem">
+          Join 50,000+ travelers who book with SwiftBus. Free account, instant confirmation.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a routerLink="/register" class="btn btn-warning btn-lg fw-bold px-5">
+            <i class="bi bi-person-plus me-2"></i>Get Started Free
+          </a>
+          <a routerLink="/search" class="btn btn-outline-light btn-lg px-4">
+            <i class="bi bi-search me-2"></i>Browse Routes
+          </a>
+        </div>
+      </div>
+    </section>

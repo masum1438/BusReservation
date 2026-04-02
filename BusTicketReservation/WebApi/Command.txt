@@ -1,0 +1,14 @@
+﻿
+//Create Migration Command:
+dotnet ef migrations add InitialDb --project Infrastructure --startup-project WebApi
+
+//Update Database Command: 
+
+dotnet ef database update --project Infrastructure --startup-project WebApi
+
+//Rollback Database Command:
+dotnet ef database update LastGoodMigration --project Infrastructure --startup-project WebApi
+
+
+//remove recent ADD migration
+dotnet ef migrations remove --project Infrastructure --startup-project WebApi

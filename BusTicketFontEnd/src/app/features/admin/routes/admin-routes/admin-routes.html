@@ -1,0 +1,193 @@
+    <div class="admin-page-header">
+      <div>
+        <h4 class="page-title mb-0"><i class="bi bi-map-fill me-2 text-success"></i>Routes</h4>
+        <p class="text-muted small mb-0 mt-1">Define travel corridors between cities.</p>
+      </div>
+      <button class="btn btn-primary fw-semibold" (click)="openModal()">
+        <i class="bi bi-plus-lg me-2"></i>Add Route
+      </button>
+    </div>
+
+    <div class="admin-page-body">
+
+      <!-- Search -->
+      <div class="card border-0 shadow-sm p-3 mb-4" style="border-radius:14px">
+        <div class="row g-2 align-items-center">
+          <div class="col-12 col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="bi bi-search text-muted"></i></span>
+              <input class="form-control border-start-0" placeholder="Search city name..."
+                     [(ngModel)]="search" />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-md-end text-muted small">
+            {{ filtered().length }} route{{ filtered().length !== 1 ? 's' : '' }} found
+          </div>
+        </div>
+      </div>
+
+      @if (loading()) { <div class="text-center py-5"><div class="spinner-border text-primary"></div></div> }
+
+      @if (!loading()) {
+        <div class="card border-0 shadow-sm" style="border-radius:16px;overflow:hidden">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th style="width:30px">#</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Distance</th>
+                  <th>Base Price</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (r of filtered(); track r.id; let i = $index) {
+                  <tr>
+                    <td class="text-muted small">{{ i + 1 }}</td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                             style="width:32px;height:32px;background:rgba(13,110,253,.08)">
+                          <i class="bi bi-geo-alt text-primary small"></i>
+                        </div>
+                        <span class="fw-semibold">{{ r.fromCity }}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+                             style="width:32px;height:32px;background:rgba(16,185,129,.08)">
+                          <i class="bi bi-geo-alt-fill text-success small"></i>
+                        </div>
+                        <span class="fw-semibold">{{ r.toCity }}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge bg-secondary bg-opacity-10 text-secondary">
+                        <i class="bi bi-rulers me-1"></i>{{ r.distance }} km
+                      </span>
+                    </td>
+                    <td>
+                      <span class="fw-bold text-primary">৳{{ r.basePrice }}</span>
+                    </td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-outline-primary me-1" (click)="openModal(r)" title="Edit">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" (click)="deleteRoute(r.id)"
+                              [disabled]="deleting() === r.id" title="Delete">
+                        @if (deleting() === r.id) { <span class="spinner-border spinner-border-sm"></span> }
+                        @else { <i class="bi bi-trash"></i> }
+                      </button>
+                    </td>
+                  </tr>
+                }
+                @if (filtered().length === 0) {
+                  <tr>
+                    <td colspan="6" class="text-center py-5 text-muted">
+                      <i class="bi bi-map" style="font-size:2.5rem;opacity:.2;display:block;margin-bottom:.5rem"></i>
+                      {{ search ? 'No routes match "' + search + '"' : 'No routes yet. Add your first route!' }}
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Modal -->
+    @if (showModal()) {
+      <div class="modal d-block" tabindex="-1" style="background:rgba(0,0,0,.45)">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content border-0 shadow-lg" style="border-radius:20px">
+            <div class="modal-header border-bottom px-4 pt-4 pb-3">
+              <div>
+                <h5 class="modal-title fw-bold mb-0">{{ editId() ? 'Edit Route' : 'Add Route' }}</h5>
+                <p class="text-muted small mb-0 mt-1">Define the origin and destination of travel</p>
+              </div>
+              <button type="button" class="btn-close" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body px-4 py-3">
+              @if (modalError()) {
+                <div class="alert alert-danger d-flex align-items-center gap-2 small py-2">
+                  <i class="bi bi-exclamation-circle-fill flex-shrink-0"></i>{{ modalError() }}
+                </div>
+              }
+
+              <!-- Route preview -->
+              @if (form.fromCity || form.toCity) {
+                <div class="p-3 rounded-3 mb-3 d-flex align-items-center gap-3"
+                     style="background:rgba(13,110,253,.05);border:1px dashed rgba(13,110,253,.2)">
+                  <i class="bi bi-geo-alt-fill text-primary"></i>
+                  <span class="fw-semibold text-primary">{{ form.fromCity || '?' }}</span>
+                  <i class="bi bi-arrow-right text-muted"></i>
+                  <i class="bi bi-geo-alt-fill text-success"></i>
+                  <span class="fw-semibold text-success">{{ form.toCity || '?' }}</span>
+                  @if (form.distance) {
+                    <span class="ms-auto text-muted small">{{ form.distance }} km</span>
+                  }
+                </div>
+              }
+
+              <form (ngSubmit)="save()" #f="ngForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold small">From City <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-geo-alt text-primary"></i></span>
+                      <input class="form-control" [(ngModel)]="form.fromCity" name="from"
+                             required placeholder="e.g. Dhaka"
+                             #fc="ngModel" [class.is-invalid]="fc.invalid && fc.touched" />
+                      <div class="invalid-feedback">Required</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold small">To City <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-geo-alt-fill text-success"></i></span>
+                      <input class="form-control" [(ngModel)]="form.toCity" name="to"
+                             required placeholder="e.g. Chittagong"
+                             #tc="ngModel" [class.is-invalid]="tc.invalid && tc.touched" />
+                      <div class="invalid-feedback">Required</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold small">Distance (km) <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-rulers"></i></span>
+                      <input class="form-control" type="number" [(ngModel)]="form.distance"
+                             name="dist" required min="1" placeholder="e.g. 265"
+                             #dist="ngModel" [class.is-invalid]="dist.invalid && dist.touched" />
+                      <span class="input-group-text">km</span>
+                      <div class="invalid-feedback">Required, must be > 0</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold small">Base Price (৳) <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text">৳</span>
+                      <input class="form-control" type="number" [(ngModel)]="form.basePrice"
+                             name="price" required min="1" placeholder="e.g. 550"
+                             #price="ngModel" [class.is-invalid]="price.invalid && price.touched" />
+                      <div class="invalid-feedback">Required, must be > 0</div>
+                    </div>
+                    <div class="form-text">Base price per seat for this route</div>
+                  </div>
+                </div>
+                <div class="d-flex gap-2 mt-4">
+                  <button type="button" class="btn btn-outline-secondary flex-fill" (click)="closeModal()">Cancel</button>
+                  <button type="submit" class="btn btn-primary flex-fill" [disabled]="saving() || f.invalid">
+                    @if (saving()) { <span class="spinner-border spinner-border-sm me-2"></span> }
+                    {{ editId() ? 'Update Route' : 'Add Route' }}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    }

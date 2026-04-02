@@ -1,0 +1,94 @@
+    <div class="admin-shell d-flex" style="min-height:100vh;background:#f1f5f9">
+
+      <!-- Sidebar -->
+      <aside class="admin-sidebar d-flex flex-column"
+             [class.collapsed]="sidebarCollapsed()"
+             style="background:#0f172a;transition:width .25s ease;flex-shrink:0">
+
+        <!-- Brand -->
+        <div class="sidebar-brand d-flex align-items-center gap-3 px-4 py-4"
+             style="border-bottom:1px solid rgba(255,255,255,.07)">
+          <div class="brand-icon flex-shrink-0">
+            <i class="bi bi-bus-front-fill text-warning"></i>
+          </div>
+          @if (!sidebarCollapsed()) {
+            <div>
+              <div style="font-weight:800;font-size:1rem;color:#fff">Swift<span style="color:#f59e0b">Bus</span></div>
+              <div style="font-size:.65rem;color:#64748b;letter-spacing:.08em;text-transform:uppercase">Admin Panel</div>
+            </div>
+          }
+        </div>
+
+        <!-- Nav links -->
+        <nav class="flex-fill px-3 py-3" style="overflow-y:auto">
+          <div class="nav-section-label mb-2" *ngIf="!sidebarCollapsed()">Overview</div>
+          <a routerLink="/admin/dashboard" routerLinkActive="active" class="sidebar-link mb-1"
+             [title]="sidebarCollapsed() ? 'Dashboard' : ''">
+            <i class="bi bi-speedometer2"></i>
+            @if (!sidebarCollapsed()) { <span>Dashboard</span> }
+          </a>
+
+          <div class="nav-section-label mb-2 mt-3" *ngIf="!sidebarCollapsed()">Management</div>
+          <a routerLink="/admin/buses" routerLinkActive="active" class="sidebar-link mb-1"
+             [title]="sidebarCollapsed() ? 'Buses' : ''">
+            <i class="bi bi-bus-front-fill"></i>
+            @if (!sidebarCollapsed()) { <span>Buses</span> }
+          </a>
+          <a routerLink="/admin/routes" routerLinkActive="active" class="sidebar-link mb-1"
+             [title]="sidebarCollapsed() ? 'Routes' : ''">
+            <i class="bi bi-map-fill"></i>
+            @if (!sidebarCollapsed()) { <span>Routes</span> }
+          </a>
+          <a routerLink="/admin/schedules" routerLinkActive="active" class="sidebar-link mb-1"
+             [title]="sidebarCollapsed() ? 'Schedules' : ''">
+            <i class="bi bi-calendar3-fill"></i>
+            @if (!sidebarCollapsed()) { <span>Schedules</span> }
+          </a>
+
+          <div class="nav-section-label mb-2 mt-3" *ngIf="!sidebarCollapsed()">Reservations</div>
+          <a routerLink="/admin/bookings" routerLinkActive="active" class="sidebar-link mb-1"
+             [title]="sidebarCollapsed() ? 'Bookings' : ''">
+            <i class="bi bi-journal-text"></i>
+            @if (!sidebarCollapsed()) { <span>All Bookings</span> }
+          </a>
+          <a routerLink="/admin/passengers" routerLinkActive="active" class="sidebar-link mb-1"
+             [title]="sidebarCollapsed() ? 'Passengers' : ''">
+            <i class="bi bi-people-fill"></i>
+            @if (!sidebarCollapsed()) { <span>Passengers</span> }
+          </a>
+        </nav>
+
+        <!-- Bottom: user + collapse -->
+        <div class="px-3 py-3" style="border-top:1px solid rgba(255,255,255,.07)">
+          @if (!sidebarCollapsed()) {
+            <div class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 mb-2"
+                 style="background:rgba(255,255,255,.05)">
+              <div class="avatar-circle flex-shrink-0">
+                {{ auth.currentUser()?.username?.charAt(0)?.toUpperCase() }}
+              </div>
+              <div style="overflow:hidden">
+                <div style="font-size:.8rem;font-weight:600;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                  {{ auth.currentUser()?.fullName }}
+                </div>
+                <div style="font-size:.68rem;color:#64748b">Administrator</div>
+              </div>
+            </div>
+          }
+          <div class="d-flex gap-1">
+            <button class="sidebar-link flex-fill justify-content-center" (click)="sidebarCollapsed.set(!sidebarCollapsed())"
+                    style="background:transparent;border:none;cursor:pointer" title="Toggle sidebar">
+              <i class="bi" [class.bi-layout-sidebar-inset-reverse]="!sidebarCollapsed()"
+                            [class.bi-layout-sidebar-inset]="sidebarCollapsed()"></i>
+            </button>
+            <a routerLink="/" class="sidebar-link flex-shrink-0" title="Back to site">
+              <i class="bi bi-arrow-left-circle"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main content area -->
+      <div class="admin-main flex-fill" style="overflow-x:hidden;min-width:0">
+        <router-outlet />
+      </div>
+    </div>

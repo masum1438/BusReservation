@@ -1,0 +1,194 @@
+ <div class="bg-primary text-white py-3">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a routerLink="/" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/search" class="text-white-50 text-decoration-none">Search</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">Book Ticket</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container py-4">
+
+      @if (pageLoading()) {
+        <div class="text-center py-5">
+          <div class="spinner-border text-primary" style="width:3rem;height:3rem"></div>
+          <p class="mt-3 text-muted">Loading seat plan...</p>
+        </div>
+      }
+
+      @if (!pageLoading() && plan()) {
+        <!-- Journey info bar -->
+        <div class="card border-0 shadow-sm mb-4" style="border-radius:16px;overflow:hidden">
+          <div style="height:4px;background:linear-gradient(90deg,#0d6efd,#6366f1)"></div>
+          <div class="card-body p-3">
+            <div class="row align-items-center g-2">
+              <div class="col-auto">
+                <div class="rounded-3 d-flex align-items-center justify-content-center"
+                     style="width:44px;height:44px;background:rgba(13,110,253,.08)">
+                  <i class="bi bi-bus-front-fill text-primary"></i>
+                </div>
+              </div>
+              <div class="col">
+                <div class="fw-bold">{{ plan()!.busName }}</div>
+                <div class="text-muted small">{{ plan()!.fromCity }} → {{ plan()!.toCity }}</div>
+              </div>
+              <div class="col-auto text-end">
+                <div class="fw-bold">{{ fmt.time(plan()!.departureTime) }}</div>
+                <div class="text-muted small">{{ fmt.date(plan()!.departureTime) }}</div>
+              </div>
+              <div class="col-auto text-end">
+                <span class="badge bg-primary bg-opacity-10 text-primary">
+                  {{ fmt.duration(plan()!.departureTime, plan()!.arrivalTime) }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Seat Map -->
+          <div class="col-12 col-lg-5">
+            <div class="card border-0 shadow-sm p-4" style="border-radius:16px">
+              <h5 class="fw-bold mb-1">Choose Your Seat</h5>
+              <p class="text-muted small mb-4">Click an available seat to select it</p>
+
+              <div class="d-flex gap-4 mb-4 flex-wrap">
+                <div class="d-flex align-items-center gap-2 small">
+                  <div style="width:16px;height:14px;border-radius:4px;background:rgba(16,185,129,.1);border:2px solid #10b981"></div>
+                  Available
+                </div>
+                <div class="d-flex align-items-center gap-2 small">
+                  <div style="width:16px;height:14px;border-radius:4px;background:rgba(13,110,253,.1);border:2px solid #0d6efd"></div>
+                  Selected
+                </div>
+                <div class="d-flex align-items-center gap-2 small">
+                  <div style="width:16px;height:14px;border-radius:4px;background:#f8fafc;border:2px solid #e2e8f0"></div>
+                  Booked
+                </div>
+              </div>
+
+              <div class="text-center mb-3">
+                <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill border text-muted small">
+                  <i class="bi bi-steering-wheel"></i> Driver
+                </div>
+              </div>
+
+              <div class="seat-grid mx-auto">
+                @for (seat of plan()!.seats; track seat.seatId) {
+                  <button class="seat-btn"
+                    [class.available]="seat.isAvailable && selectedSeat()?.seatId !== seat.seatId"
+                    [class.selected]="selectedSeat()?.seatId === seat.seatId"
+                    [class.booked]="!seat.isAvailable"
+                    [disabled]="!seat.isAvailable"
+                    (click)="selectSeat(seat)"
+                    [title]="seat.seatNumber + ' — ' + seat.status">
+                    {{ seat.seatNumber }}
+                  </button>
+                }
+              </div>
+
+              @if (selectedSeat()) {
+                <div class="alert alert-primary d-flex align-items-center gap-2 mt-4 mb-0" role="alert">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <div class="small">Seat <strong>{{ selectedSeat()!.seatNumber }}</strong> selected</div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Passenger Form -->
+          <div class="col-12 col-lg-7">
+            <div class="card border-0 shadow-sm p-4" style="border-radius:16px">
+              <h5 class="fw-bold mb-4">Passenger Details</h5>
+
+              @if (error()) {
+                <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
+                  <i class="bi bi-exclamation-circle-fill"></i><div>{{ error() }}</div>
+                </div>
+              }
+              @if (success()) {
+                <div class="alert alert-success d-flex align-items-center gap-2" role="alert">
+                  <i class="bi bi-check-circle-fill"></i><div>{{ success() }}</div>
+                </div>
+              }
+
+              <form (ngSubmit)="book()" #bookForm="ngForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-person"></i></span>
+                      <input class="form-control" type="text" placeholder="Passenger's full name"
+                             [(ngModel)]="form.passengerName" name="passengerName" required
+                             #pn="ngModel" [class.is-invalid]="pn.invalid && pn.touched" />
+                      <div class="invalid-feedback">Name is required</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Mobile <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                      <input class="form-control" type="tel" placeholder="+8801XXXXXXXXX"
+                             [(ngModel)]="form.mobileNumber" name="mobile" required
+                             #mob="ngModel" [class.is-invalid]="mob.invalid && mob.touched" />
+                      <div class="invalid-feedback">Mobile is required</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                      <input class="form-control" type="email" placeholder="Optional"
+                             [(ngModel)]="form.email" name="email" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Boarding Point</label>
+                    <input class="form-control" placeholder="e.g. Sayedabad"
+                           [(ngModel)]="form.boardingPoint" name="board" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Dropping Point</label>
+                    <input class="form-control" placeholder="e.g. A.K. Khan"
+                           [(ngModel)]="form.droppingPoint" name="drop" />
+                  </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="card bg-light border-0 p-3 mt-4">
+                  <div class="d-flex justify-content-between align-items-center small mb-2">
+                    <span class="text-muted">Route</span>
+                    <span class="fw-semibold">{{ plan()!.fromCity }} → {{ plan()!.toCity }}</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center small mb-2">
+                    <span class="text-muted">Departure</span>
+                    <span class="fw-semibold">{{ fmt.dateTime(plan()!.departureTime) }}</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center small mb-2">
+                    <span class="text-muted">Seat</span>
+                    <span class="fw-semibold">{{ selectedSeat()?.seatNumber ?? '—' }}</span>
+                  </div>
+                  <hr class="my-2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="fw-bold">Total</span>
+                    <span class="fw-bold text-primary fs-5">—</span>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 btn-lg mt-3"
+                        [disabled]="loading() || !selectedSeat() || bookForm.invalid">
+                  @if (loading()) {
+                    <span class="spinner-border spinner-border-sm me-2"></span>Processing...
+                  } @else {
+                    <i class="bi bi-check-circle me-2"></i>Confirm Booking
+                  }
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      }
+    </div>

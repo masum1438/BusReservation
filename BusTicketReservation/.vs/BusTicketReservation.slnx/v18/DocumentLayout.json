@@ -1,0 +1,779 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Claude_proj\\BusTicketReservation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\busschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\busschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\command.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\command.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|f:\\claude_proj\\busticketreservation\\infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|f:\\claude_proj\\busticketreservation\\infrastructure\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|f:\\claude_proj\\busticketreservation\\infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\services\\admin\\adminservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\services\\admin\\adminservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\dtos\\auth\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\dtos\\auth\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\admin\\admincontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\admin\\admincontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\seatlockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\seatlockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\userbookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\userbookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|f:\\claude_proj\\busticketreservation\\infrastructure\\services\\seatlockcleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\seatlockcleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|f:\\claude_proj\\busticketreservation\\infrastructure\\services\\seatavailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\seatavailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\services\\seatlockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\services\\seatlockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\services\\searchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\services\\searchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\services\\userbookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\services\\userbookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\services\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\dtos\\bookingdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\dtos\\bookingdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\dtos\\admin\\admindtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\dtos\\admin\\admindtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\services\\iseatavailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\services\\iseatavailabilityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\valueobjects\\bustype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\bustype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\seatlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\seatlock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\controllers\\seatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\seatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\valueobjects\\seatlockstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\seatlockstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|f:\\claude_proj\\busticketreservation\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F0E97670-16A2-4503-8A28-EAF9BC47325E}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|f:\\claude_proj\\busticketreservation\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E050EFD8-67C1-4865-9700-CA301E0356C5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|f:\\claude_proj\\busticketreservation\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{97C8179E-C395-493C-A1F1-7829D4BE65AB}|WebApi\\WebApi.csproj|solutionrelative:webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|f:\\claude_proj\\busticketreservation\\domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8DC2BE08-8DF7-4CAB-A39F-EAE7E4272A4A}|Domain\\Domain.csproj|solutionrelative:domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 866,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\AuthController.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAuwE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T12:08:18.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BusSchedule.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\BusSchedule.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\BusSchedule.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\BusSchedule.cs",
+              "RelativeToolTip": "Domain\\Entities\\BusSchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:59:59.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:49:58.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Repositories\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UnitOfWork.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Repositories\\UnitOfWork.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:09:17.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\GenericRepository.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:08:58.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Command.txt",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Command.txt",
+              "RelativeDocumentMoniker": "WebApi\\Command.txt",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Command.txt",
+              "RelativeToolTip": "WebApi\\Command.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-03-23T04:49:14.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\Auth\\AuthService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\Auth\\AuthService.cs",
+              "RelativeToolTip": "Application\\Services\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAUwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:39:22.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminServices.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\Admin\\AdminServices.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\Admin\\AdminServices.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\Admin\\AdminServices.cs",
+              "RelativeToolTip": "Application\\Services\\Admin\\AdminServices.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA8wP8BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:20:13.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Authdtos.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\DTOs\\Auth\\Authdtos.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Auth\\Authdtos.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\DTOs\\Auth\\Authdtos.cs",
+              "RelativeToolTip": "Application\\DTOs\\Auth\\Authdtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:15:14.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Admin.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Admin.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Admin.cs",
+              "RelativeToolTip": "Domain\\Entities\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:56:14.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\User.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\User.cs",
+              "RelativeToolTip": "Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:56:47.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Admincontrollers.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\Admin\\Admincontrollers.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\Admin\\Admincontrollers.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\Admin\\Admincontrollers.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\Admin\\Admincontrollers.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAowOwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:25:24.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "WebApi\\Program.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Program.cs",
+              "RelativeToolTip": "WebApi\\Program.cs",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAIwO0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:47:35.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApi\\appsettings.json",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\appsettings.json",
+              "RelativeToolTip": "WebApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-22T15:52:09.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SearchController.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\SearchController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\SearchController.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\SearchController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\SearchController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:10:19.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WebApi.csproj",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\WebApi.csproj",
+              "RelativeDocumentMoniker": "WebApi\\WebApi.csproj",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\WebApi.csproj",
+              "RelativeToolTip": "WebApi\\WebApi.csproj",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-22T17:20:12.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SeatLockController.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\SeatLockController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\SeatLockController.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\SeatLockController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\SeatLockController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAA5wFUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T17:15:48.299Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserBookingController.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\UserBookingController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\UserBookingController.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\UserBookingController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\UserBookingController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T05:55:53.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\BookingController.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAA5wEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:10:36.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Baseapicontroller.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\Baseapicontroller.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\Baseapicontroller.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\Baseapicontroller.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\Baseapicontroller.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:22:53.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SeatLockCleanupService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Services\\SeatLockCleanupService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\SeatLockCleanupService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Services\\SeatLockCleanupService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\SeatLockCleanupService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:49:04.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SeatAvailabilityService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Services\\SeatAvailabilityService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\SeatAvailabilityService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Services\\SeatAvailabilityService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\SeatAvailabilityService.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAowKEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:09:41.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SearchService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\SearchService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\SearchService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\SearchService.cs",
+              "RelativeToolTip": "Application\\Services\\SearchService.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAowD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:05:13.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SeatLockService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\SeatLockService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\SeatLockService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\SeatLockService.cs",
+              "RelativeToolTip": "Application\\Services\\SeatLockService.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowHwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:39:16.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UserBookingService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\UserBookingService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserBookingService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\UserBookingService.cs",
+              "RelativeToolTip": "Application\\Services\\UserBookingService.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAowK8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:39:38.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\BookingService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\BookingService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Services\\BookingService.cs",
+              "RelativeToolTip": "Application\\Services\\BookingService.cs",
+              "ViewState": "AgIAAC4BAAAAAAAAAAAowDgBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:05:36.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Bookingdtos.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\DTOs\\Bookingdtos.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Bookingdtos.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\DTOs\\Bookingdtos.cs",
+              "RelativeToolTip": "Application\\DTOs\\Bookingdtos.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAowJEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:17:08.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Admindtos.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\DTOs\\Admin\\Admindtos.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\Admin\\Admindtos.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\DTOs\\Admin\\Admindtos.cs",
+              "RelativeToolTip": "Application\\DTOs\\Admin\\Admindtos.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAA5wG0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:16:15.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ISeatAvailabilityService.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Services\\ISeatAvailabilityService.cs",
+              "RelativeDocumentMoniker": "Domain\\Services\\ISeatAvailabilityService.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Services\\ISeatAvailabilityService.cs",
+              "RelativeToolTip": "Domain\\Services\\ISeatAvailabilityService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA5wBMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:02:27.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:55:27.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IRepository.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAowA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:01:46.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "BusType.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\ValueObjects\\BusType.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\BusType.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\ValueObjects\\BusType.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\BusType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:01:12.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Ticket.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Ticket.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Ticket.cs",
+              "RelativeToolTip": "Domain\\Entities\\Ticket.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA5wB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:00:33.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "SeatLock.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\SeatLock.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\SeatLock.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\SeatLock.cs",
+              "RelativeToolTip": "Domain\\Entities\\SeatLock.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAA5wAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:56:37.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Seat.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Seat.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Seat.cs",
+              "RelativeToolTip": "Domain\\Entities\\Seat.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA5wBUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:00:16.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Passenger.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Passenger.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Passenger.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Passenger.cs",
+              "RelativeToolTip": "Domain\\Entities\\Passenger.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA5wA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T16:00:50.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Route.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Route.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Route.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Route.cs",
+              "RelativeToolTip": "Domain\\Entities\\Route.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAowAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:59:41.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Bus.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Bus.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Bus.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\Bus.cs",
+              "RelativeToolTip": "Domain\\Entities\\Bus.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA5wA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:59:22.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\RefreshToken.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\RefreshToken.cs",
+              "RelativeToolTip": "Domain\\Entities\\RefreshToken.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA5wBEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T11:35:40.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\BaseEntity.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:58:56.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "SeatController.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\SeatController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\SeatController.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Controllers\\SeatController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\SeatController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAwEcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:46:07.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "SeatLockStatus.cs",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\ValueObjects\\SeatLockStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\SeatLockStatus.cs",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\ValueObjects\\SeatLockStatus.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\SeatLockStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:56:55.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Application.csproj",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "Application\\Application.csproj",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Application\\Application.csproj",
+              "RelativeToolTip": "Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-22T15:32:52.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Infrastructure.csproj",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Infrastructure\\Infrastructure.csproj",
+              "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-22T15:49:31.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "WebApi\\Properties\\launchSettings.json",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\WebApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "WebApi\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-23T05:13:41.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Domain.csproj",
+              "DocumentMoniker": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Domain.csproj",
+              "RelativeDocumentMoniker": "Domain\\Domain.csproj",
+              "ToolTip": "F:\\Claude_proj\\BusTicketReservation\\Domain\\Domain.csproj",
+              "RelativeToolTip": "Domain\\Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-22T16:01:29.409Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 866,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+    <div class="admin-page-header">
+      <div>
+        <h4 class="page-title mb-0">Dashboard</h4>
+        <p class="text-muted small mb-0 mt-1">Welcome back! Here is an overview of all operations.</p>
+      </div>
+      <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2">
+        <i class="bi bi-circle-fill me-1" style="font-size:.4rem;vertical-align:middle"></i>System Online
+      </span>
+    </div>
+
+    <div class="admin-page-body">
+
+      @if (loading()) {
+        <div class="text-center py-5">
+          <div class="spinner-border text-warning" style="width:3rem;height:3rem"></div>
+          <p class="mt-3 text-muted">Loading dashboard...</p>
+        </div>
+      }
+
+      @if (!loading() && stats()) {
+
+        <!-- KPI row -->
+        <div class="row g-3 mb-4">
+          @for (k of kpis(); track k.label) {
+            <div class="col-6 col-xl-3">
+              <div class="card border-0 shadow-sm p-4 h-100" style="border-radius:16px;transition:.2s"
+                   onmouseenter="this.style.transform='translateY(-2px)'"
+                   onmouseleave="this.style.transform=''">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="rounded-3 d-flex align-items-center justify-content-center"
+                       [style]="'width:44px;height:44px;background:' + k.bg">
+                    <i class="bi {{k.icon}} fs-5" [style.color]="k.color"></i>
+                  </div>
+                  <span class="small fw-semibold" [style.color]="k.color">{{ k.tag }}</span>
+                </div>
+                <div style="font-size:1.75rem;font-weight:800;color:#0f172a;line-height:1">{{ k.value }}</div>
+                <div class="text-muted small mt-1">{{ k.label }}</div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="row g-4 mb-4">
+          <!-- Status breakdown -->
+          <div class="col-md-5">
+            <div class="card border-0 shadow-sm p-4 h-100" style="border-radius:16px">
+              <h6 class="fw-bold mb-4">Booking Status Breakdown</h6>
+              @for (s of statusBreakdown(); track s.label) {
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between small mb-1">
+                    <span class="fw-semibold">{{ s.label }}</span>
+                    <span class="text-muted">{{ s.value }} &bull; {{ s.pct }}%</span>
+                  </div>
+                  <div class="progress" style="height:8px;border-radius:4px">
+                    <div class="progress-bar {{ s.bar }}" [style.width]="s.pct + '%'" style="transition:width .6s"></div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Top buses -->
+          <div class="col-md-7">
+            <div class="card border-0 shadow-sm p-4 h-100" style="border-radius:16px">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h6 class="fw-bold mb-0">Top Buses by Bookings</h6>
+                <a routerLink="/admin/buses" class="btn btn-sm btn-outline-primary">Manage</a>
+              </div>
+              @if (topBuses().length === 0) {
+                <div class="text-center text-muted py-4 small">No booking data yet.</div>
+              }
+              @for (b of topBuses(); track b.name; let i = $index) {
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div class="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
+                       style="width:26px;height:26px;background:#f1f5f9;font-size:.72rem;font-weight:700;color:#64748b">
+                    {{ i + 1 }}
+                  </div>
+                  <div class="flex-fill">
+                    <div class="d-flex justify-content-between small mb-1">
+                      <span class="fw-semibold">{{ b.name }}</span>
+                      <span class="text-muted">{{ b.count }}</span>
+                    </div>
+                    <div class="progress" style="height:6px;border-radius:3px">
+                      <div class="progress-bar bg-warning" [style.width]="b.pct + '%'"></div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <!-- Popular routes -->
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4" style="border-radius:16px">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h6 class="fw-bold mb-0">Popular Routes</h6>
+                <a routerLink="/admin/routes" class="btn btn-sm btn-outline-primary">Manage</a>
+              </div>
+              @if (topRoutes().length === 0) {
+                <div class="text-center text-muted py-4 small">No route data yet.</div>
+              }
+              @for (r of topRoutes(); track r.name) {
+                <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-opacity-25">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-geo-alt-fill text-primary small"></i>
+                    <span class="small fw-semibold">{{ r.name }}</span>
+                  </div>
+                  <span class="badge bg-primary bg-opacity-10 text-primary">{{ r.count }} trips</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Quick actions -->
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4" style="border-radius:16px">
+              <h6 class="fw-bold mb-4">Quick Actions</h6>
+              <div class="row g-2">
+                @for (a of quickActions; track a.label) {
+                  <div class="col-6">
+                    <a [routerLink]="a.route" class="text-decoration-none d-flex align-items-center gap-2 p-3 rounded-3"
+                       [style]="'background:' + a.bg + ';transition:.15s'"
+                       onmouseenter="this.style.transform='scale(1.02)'"
+                       onmouseleave="this.style.transform=''">
+                      <i class="bi {{a.icon}}" [style.color]="a.color"></i>
+                      <span class="small fw-semibold" [style.color]="a.color">{{ a.label }}</span>
+                    </a>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent bookings table -->
+        <div class="card border-0 shadow-sm" style="border-radius:16px;overflow:hidden">
+          <div class="d-flex align-items-center justify-content-between px-4 py-3 bg-white border-bottom">
+            <h6 class="fw-bold mb-0">Recent Bookings</h6>
+            <a routerLink="/admin/bookings" class="btn btn-sm btn-outline-primary">View All</a>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Ticket</th><th>Passenger</th><th>Route</th><th>Seat</th><th>Amount</th><th>Booked On</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                @if (recentBookings().length === 0) {
+                  <tr><td colspan="7" class="text-center py-5 text-muted small">No bookings yet.</td></tr>
+                }
+                @for (b of recentBookings(); track b.ticketId) {
+                  <tr>
+                    <td><code class="text-primary small">{{ b.ticketNumber }}</code></td>
+                    <td>
+                      <div class="fw-semibold small">{{ b.passengerName }}</div>
+                      <div class="text-muted" style="font-size:.72rem">{{ b.mobileNumber }}</div>
+                    </td>
+                    <td class="small text-muted">{{ b.fromCity }} → {{ b.toCity }}</td>
+                    <td><span class="badge bg-secondary bg-opacity-10 text-secondary">{{ b.seatNumber }}</span></td>
+                    <td class="fw-semibold text-primary">৳{{ b.price }}</td>
+                    <td class="text-muted small">{{ formatDate(b.bookingDate) }}</td>
+                    <td>
+                      <span class="badge"
+                            [class.bg-success]="b.status==='Confirmed'"
+                            [class.bg-warning]="b.status==='Pending'"
+                            [class.bg-danger]="b.status==='Cancelled'"
+                            [class.bg-opacity-10]="true"
+                            [class.text-success]="b.status==='Confirmed'"
+                            [class.text-warning]="b.status==='Pending'"
+                            [class.text-danger]="b.status==='Cancelled'">
+                        {{ b.status }}
+                      </span>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      }
+    </div>

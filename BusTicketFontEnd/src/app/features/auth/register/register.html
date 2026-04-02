@@ -1,0 +1,169 @@
+    <div class="auth-page">
+      <div class="container py-5">
+        <div class="row justify-content-center min-vh-100 align-items-center">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+
+            <div class="text-center mb-4 fade-up">
+              <a routerLink="/" class="text-decoration-none">
+                <div class="auth-brand-icon">
+                  <i class="bi bi-bus-front-fill"></i>
+                </div>
+                <div style="font-weight:800;font-size:1.4rem;color:#0f172a">
+                  Swift<span class="text-primary">Bus</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="auth-card fade-up">
+
+              <div class="text-center mb-4">
+                <h3 class="fw-bold mb-1">Create your account</h3>
+                <p class="text-muted small mb-0">Join thousands of travelers on SwiftBus</p>
+              </div>
+
+              @if (error()) {
+                <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                  <div>{{ error() }}</div>
+                </div>
+              }
+
+              <!-- Step indicators -->
+              <div class="d-flex gap-2 mb-4">
+                <div class="step-dot" [class.active]="step() >= 1"></div>
+                <div class="step-dot" [class.active]="step() >= 2"></div>
+              </div>
+
+              <form (ngSubmit)="submit()" #regForm="ngForm" novalidate>
+
+                @if (step() === 1) {
+                  <!-- Step 1: Personal info -->
+                  <div class="fade-up">
+                    <p class="small fw-semibold text-muted text-uppercase mb-3" style="letter-spacing:.06em">
+                      Step 1 of 2 — Personal Info
+                    </p>
+
+                    <div class="mb-3">
+                      <label class="form-label">Full Name</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person-vcard"></i></span>
+                        <input type="text" class="form-control" placeholder="Your full name"
+                               [(ngModel)]="form.fullName" name="fullName" required
+                               #fn="ngModel" [class.is-invalid]="fn.invalid && fn.touched" />
+                        <div class="invalid-feedback">Full name is required</div>
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Mobile Number</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                        <input type="tel" class="form-control" placeholder="+8801XXXXXXXXX"
+                               [(ngModel)]="form.mobileNumber" name="mobileNumber" required
+                               #mob="ngModel" [class.is-invalid]="mob.invalid && mob.touched" />
+                        <div class="invalid-feedback">Mobile number is required</div>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label">Email Address</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                        <input type="email" class="form-control" placeholder="you@email.com"
+                               [(ngModel)]="form.email" name="email" required
+                               #em="ngModel" [class.is-invalid]="em.invalid && em.touched" />
+                        <div class="invalid-feedback">Valid email is required</div>
+                      </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100 btn-lg"
+                            (click)="nextStep()"
+                            [disabled]="!form.fullName || !form.mobileNumber || !form.email">
+                      Continue <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                  </div>
+                }
+
+                @if (step() === 2) {
+                  <!-- Step 2: Account credentials -->
+                  <div class="fade-up">
+                    <p class="small fw-semibold text-muted text-uppercase mb-3" style="letter-spacing:.06em">
+                      Step 2 of 2 — Account Credentials
+                    </p>
+
+                    <div class="mb-3">
+                      <label class="form-label">Username</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-at"></i></span>
+                        <input type="text" class="form-control" placeholder="Choose a username"
+                               [(ngModel)]="form.username" name="username" required
+                               #un="ngModel" [class.is-invalid]="un.invalid && un.touched" />
+                        <div class="invalid-feedback">Username is required</div>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label">Password</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                        <input [type]="showPass() ? 'text' : 'password'"
+                               class="form-control" placeholder="Min. 8 characters"
+                               [(ngModel)]="form.password" name="password" required minlength="8"
+                               #pw="ngModel" [class.is-invalid]="pw.invalid && pw.touched" />
+                        <button type="button" class="btn btn-outline-secondary border-start-0"
+                                style="border-radius:0 10px 10px 0 !important"
+                                (click)="showPass.set(!showPass())">
+                          <i class="bi" [class.bi-eye]="!showPass()" [class.bi-eye-slash]="showPass()"></i>
+                        </button>
+                        <div class="invalid-feedback">Password must be at least 8 characters</div>
+                      </div>
+
+                      <!-- Password strength -->
+                      @if (form.password) {
+                        <div class="mt-2">
+                          <div class="progress" style="height:4px;border-radius:2px">
+                            <div class="progress-bar" [style.width]="pwStrength() + '%'"
+                                 [class.bg-danger]="pwStrength() < 40"
+                                 [class.bg-warning]="pwStrength() >= 40 && pwStrength() < 75"
+                                 [class.bg-success]="pwStrength() >= 75"
+                                 style="transition:.3s"></div>
+                          </div>
+                          <small class="text-muted" style="font-size:.75rem">
+                            {{ pwStrength() < 40 ? 'Weak' : pwStrength() < 75 ? 'Good' : 'Strong' }} password
+                          </small>
+                        </div>
+                      }
+                    </div>
+
+                    <div class="d-flex gap-2">
+                      <button type="button" class="btn btn-outline-secondary" (click)="step.set(1)">
+                        <i class="bi bi-arrow-left"></i>
+                      </button>
+                      <button type="submit" class="btn btn-primary flex-fill btn-lg"
+                              [disabled]="loading() || !form.username || !form.password || form.password.length < 8">
+                        @if (loading()) {
+                          <span class="spinner-border spinner-border-sm me-2"></span>Creating...
+                        } @else {
+                          <i class="bi bi-person-check me-2"></i>Create Account
+                        }
+                      </button>
+                    </div>
+                  </div>
+                }
+
+              </form>
+
+              <hr class="my-4">
+              <div class="text-center">
+                <p class="text-muted small mb-0">
+                  Already have an account?
+                  <a routerLink="/login" class="text-primary fw-semibold ms-1">Sign in</a>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 

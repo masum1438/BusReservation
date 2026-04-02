@@ -1,0 +1,41 @@
+    .admin-sidebar { width: 240px; }
+    .admin-sidebar.collapsed { width: 64px; }
+
+    .brand-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(245,158,11,.15); border: 1px solid rgba(245,158,11,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .nav-section-label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #334155; padding-left: .5rem;
+    }
+
+    .sidebar-link {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .55rem .75rem; border-radius: 8px; color: #64748b;
+      text-decoration: none; font-size: .875rem; font-weight: 500;
+      transition: all .18s; width: 100%;
+
+      i { font-size: 1rem; flex-shrink: 0; width: 20px; text-align: center; }
+
+      &:hover { background: rgba(255,255,255,.06); color: #e2e8f0; }
+      &.active { background: rgba(245,158,11,.12); color: #f59e0b;
+        border: 1px solid rgba(245,158,11,.2);
+        i { color: #f59e0b; }
+      }
+    }
+
+    .avatar-circle {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(245,158,11,.15); border: 1px solid rgba(245,158,11,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700; color: #f59e0b;
+    }
+
+    @media (max-width: 768px) {
+      .admin-sidebar { width: 64px; }
+      .admin-sidebar .brand-icon { margin: 0 auto; }
+    }

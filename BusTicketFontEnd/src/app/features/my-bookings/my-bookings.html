@@ -1,0 +1,106 @@
+    <div class="bg-primary text-white py-4">
+      <div class="container">
+        <h3 class="fw-bold mb-0"><i class="bi bi-ticket-perforated me-2"></i>My Bookings</h3>
+        <p class="mb-0 small mt-1" style="opacity:.75">View and manage all your tickets</p>
+      </div>
+    </div>
+
+    <div class="container py-4">
+
+      @if (loading()) {
+        <div class="text-center py-5">
+          <div class="spinner-border text-primary" style="width:3rem;height:3rem"></div>
+          <p class="mt-3 text-muted">Loading your bookings...</p>
+        </div>
+      }
+
+      @if (!loading() && bookings().length === 0) {
+        <div class="text-center py-5">
+          <i class="bi bi-ticket-perforated text-muted" style="font-size:4rem;opacity:.2"></i>
+          <h5 class="mt-3 fw-bold">No bookings yet</h5>
+          <p class="text-muted">Book your first ticket and it'll show up here.</p>
+          <a routerLink="/search" class="btn btn-primary mt-2">
+            <i class="bi bi-search me-2"></i>Search Buses
+          </a>
+        </div>
+      }
+
+      @if (!loading() && bookings().length > 0) {
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="mb-0 fw-bold">{{ bookings().length }} booking{{ bookings().length > 1 ? 's' : '' }}</h5>
+        </div>
+
+        <div class="d-flex flex-column gap-3">
+          @for (b of bookings(); track b.ticketId) {
+            <div class="card border-0 shadow-sm fade-up" style="border-radius:16px;overflow:hidden">
+              <div class="card-body p-0">
+                <div class="row g-0">
+
+                  <!-- Status stripe -->
+                  <div class="col-auto d-flex align-items-center justify-content-center px-3"
+                       [style.background]="statusBg(b.status)"
+                       style="min-height:120px;writing-mode:vertical-lr;border-right:1px solid rgba(0,0,0,.06)">
+                    <span class="small fw-bold"
+                          [style.color]="statusColor(b.status)"
+                          style="letter-spacing:.1em;text-transform:uppercase;font-size:.65rem">
+                      {{ b.status }}
+                    </span>
+                  </div>
+
+                  <div class="col p-4">
+                    <div class="row align-items-center g-3">
+
+                      <div class="col-12 col-md-4">
+                        <div class="text-muted small mb-1">{{ b.companyName }}</div>
+                        <div class="fw-bold fs-5">{{ b.fromCity }} → {{ b.toCity }}</div>
+                        <div class="text-muted small">{{ fmt.dateLong(b.departureTime) }}</div>
+                        <div class="mt-1">
+                          <span class="badge bg-secondary bg-opacity-10 text-secondary">
+                            {{ fmt.time(b.departureTime) }} → {{ fmt.time(b.arrivalTime) }}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="col-6 col-md-2 text-center">
+                        <div class="text-muted small mb-1">Seat</div>
+                        <div class="fw-bold fs-4 text-primary">{{ b.seatNumber }}</div>
+                        <div class="text-muted" style="font-size:.72rem">{{ b.busName }}</div>
+                      </div>
+
+                      <div class="col-6 col-md-3 text-center">
+                        <div class="text-muted small mb-1">Ticket No.</div>
+                        <div class="fw-semibold" style="font-size:.78rem;word-break:break-all">
+                          {{ b.ticketNumber }}
+                        </div>
+                        <div class="text-muted small">{{ fmt.dateShort(b.bookingDate) }}</div>
+                      </div>
+
+                      <div class="col-6 col-md-1 text-center">
+                        <div class="text-muted small mb-1">Fare</div>
+                        <div class="fw-bold text-primary">৳{{ b.price }}</div>
+                      </div>
+
+                      <div class="col-6 col-md-2 text-end">
+                        @if (b.status === 'Confirmed') {
+                          <button class="btn btn-sm btn-outline-danger"
+                                  (click)="cancel(b)"
+                                  [disabled]="cancelling() === b.ticketId">
+                            @if (cancelling() === b.ticketId) {
+                              <span class="spinner-border spinner-border-sm"></span>
+                            } @else {
+                              <i class="bi bi-x-circle me-1"></i>Cancel
+                            }
+                          </button>
+                        }
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  

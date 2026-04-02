@@ -1,0 +1,5 @@
+.step-dot {
+      flex: 1; height: 4px; border-radius: 2px;
+      background: #e2e8f0; transition: background .3s;
+      &.active { background: var(--bs-primary); }
+    }
