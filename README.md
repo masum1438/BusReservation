@@ -323,25 +323,6 @@ Users can:
 
 ---
 
-# 📂 Project Structure
-
-SwiftBus
-│
-├── backend
-│   ├── Domain
-│   ├── Application
-│   ├── Infrastructure
-│   └── WebAPI
-│
-├── frontend
-│   ├── components
-│   ├── services
-│   ├── guards
-│   └── layouts
-│
-└── README.md
-
----
 
 #  Testing Recommendations
 
