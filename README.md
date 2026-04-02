@@ -241,32 +241,6 @@ The JWT interceptor automatically:
 
 ---
 
-#  Datetime Handling Solution
-
-Two major datetime issues were addressed in the system.
-
-## Problem 1 — Sending Date to Backend
-
-HTML date inputs produce values without time information, which caused parsing failures in .NET.
-
-### Solution
-
-Dates are converted into a standard ISO format with time:
-
-`YYYY-MM-DDT00:00:00`
-
----
-
-## Problem 2 — Receiving Date from Backend
-
-JavaScript interpreted backend timestamps incorrectly due to timezone differences.
-
-### Solution
-
-A UTC suffix (`Z`) is added before parsing, ensuring consistent timezone handling.
-
----
-
 #  Booking Flow (End-to-End)
 
 The booking workflow follows a secure transaction-based process:
@@ -392,12 +366,11 @@ Planned enhancements include:
 
 ---
 
-#  Author
-
+# Author
 **Masum Ahmed**
-Department of Information and Communication Technology
-Mawlana Bhashani Science and Technology University
-Bangladesh
+-Department of Information and Communication Technology
+-Mawlana Bhashani Science and Technology University
+-Bangladesh
 
 ---
 
